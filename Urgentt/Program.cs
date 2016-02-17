@@ -40,6 +40,8 @@ namespace Urgentt
             string input = "[17:48:19] <Barney> The Secret Life of the Zoo | S01E03 | Episode | 2016 | MKV | H.264 | HDTV | 720p | Yes | Yes | 609074 | Anonymous | English | The.Secret.Life.Of.The.Zoo.S01E03.720p.HDTV.x264-C4TV";
             Console.WriteLine(Parser.title(input));
 
+            var bot = new ircBot();
+
             Console.ReadKey();
         }
     }
@@ -55,13 +57,27 @@ namespace Urgentt
         }
     }
 
-    //public class ircBot : BasicIrcBot
-    //{
-    //    public ircBot() : base()
-    //    {
+    public class ircBot : BasicIrcBot
+    {
+        public ircBot() : base()
+        {
+            Run();
+        }
 
-    //    }
-    //}
+        public override IrcRegistrationInfo RegistrationInfo
+        {
+            get
+            {
+                return new IrcUserRegistrationInfo()
+                {
+                    NickName = "xelra_Urgentt",
+                    UserName = "xelra_Urgentt",
+                    RealName = "xelra_Urgentt"
+                };
+            }
+        }
+    }
+
 
     public class Config
     {
