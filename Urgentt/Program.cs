@@ -29,7 +29,7 @@ namespace Urgentt
             request.AddBody(new {
                 title = "NCIS.S13E15.720p.HDTV.X264-DIMENSION",
                 downloadURL = "http://foobar.com/download.blub",
-                downloadProtocol = "torrent",
+                protocol = "torrent",
                 publishDate = "2016-02-10T00:00:00Z"
             });
 
