@@ -39,9 +39,8 @@ namespace Urgentt
 
             string input = "[17:48:19] <Barney> The Secret Life of the Zoo | S01E03 | Episode | 2016 | MKV | H.264 | HDTV | 720p | Yes | Yes | 609074 | Anonymous | English | The.Secret.Life.Of.The.Zoo.S01E03.720p.HDTV.x264-C4TV";
             Console.WriteLine(Parser.title(input));
-
+                        
             var bot = new ircBot();
-
             Console.ReadKey();
         }
     }
@@ -61,7 +60,18 @@ namespace Urgentt
     {
         public ircBot() : base()
         {
-            Run();
+            Connect("irc.freenode.net", RegistrationInfo);
+            System.Threading.Thread.Sleep(12000);
+            var server = Clients[0].ServerName;
+            foreach (var client in this.Clients)
+            {
+                Console.Out.WriteLine("Server: {0}", client.ServerName ?? "(unknown)");
+            }
+            Console.WriteLine(server);
+            System.Threading.Thread.Sleep(3000);
+            var clientt = GetClientFromServerNameMask(server);
+            var channelName = @"#sonarr";
+            clientt.Channels.Join(channelName);
         }
 
         public override IrcRegistrationInfo RegistrationInfo
